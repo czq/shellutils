@@ -1,0 +1,16 @@
+shellutils
+==========
+
+Shell Utilities
+
+== idlj.sh
+==========
+A script that wrap the JDK's idlj and provide some extra functions:
+  - Accept multiple files and directories containing IDL definitions to compile;
+  - Manually specify java package prefix or auto detect from the "#pragma prefix" pragma.
+
+Examples:
+  idlj.sh --pkg-pragma -- *.idl
+  idlj.sh --pkg-prefix=my.pkg -- dir1/*.idl dir2/*.idl
+  idlj.sh -emitAll -fall -i /idl/inc --pkg-pragma -- \$(find . -name "*.idl")
+  find src/idl/ -name "*.idl" -maxdepth 1 | xargs idlj.sh -td /target --pkg-prefix=my.pkg --
